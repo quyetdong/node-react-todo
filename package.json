@@ -1,0 +1,23 @@
+{
+  "name": "test-proj-nodejs",
+  "version": "1.0.0",
+  "description": "\"# test-proj-nodejs project document\"",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quyetdong/test-proj-nodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/quyetdong/test-proj-nodejs/issues"
+  },
+  "homepage": "https://github.com/quyetdong/test-proj-nodejs#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
