@@ -7,6 +7,7 @@ const userSchema = new Schema({
   email: { type: String, unique: true },
   password: { type: String },
   token: { type: String },
+  googleId: { type: String }
 });
 
 export default model("user", userSchema);

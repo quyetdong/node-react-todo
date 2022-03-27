@@ -1,12 +1,20 @@
 import jwt from 'jsonwebtoken';
+import createToken from '../lib/createToken.js';
 
 const config = process.env;
 
 export default function verifyToken (req, res, next) {
+  let user = req.user || {};
   let token = req.body.token || req.query.token || 
     req.headers["x-access-token"] ||
-    req.header("authorization");
+    req.header("authorization") || user.token;
 
+  if (!token && req.user) {
+    console.log('*** create token')
+    token = createToken({ id: req.user._id, email: req.user.email });
+    req.user.token = token;
+  }
+  
   if (!token) {
     return res.status(403).send("A token is required for authentication");
   }

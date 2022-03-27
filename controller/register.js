@@ -1,6 +1,7 @@
 import bcrypt from 'bcryptjs';
 
 import User from '../model/user.js';
+import createToken from '../lib/createToken.js';
 
 export default async function (req, res) {
   // our register logic goes here...
@@ -32,11 +33,7 @@ export default async function (req, res) {
     });
 
     // create token
-    const token = jwt.sign(
-      { user_id: user._id, email },
-      process.env.TOKEN_KEY,
-      { expiresIn: '1h' }
-    );
+    const token = createToken({ id: user._id, email });
 
     // save user token
     user.token = token;

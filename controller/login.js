@@ -1,7 +1,7 @@
-import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 
 import User from '../model/user.js';
+import createToken from '../lib/createToken.js';
 
 export default async function (req, res) {
   // our login logic goes here
@@ -19,13 +19,7 @@ export default async function (req, res) {
 
     if (user && (await bcrypt.compare(password, user.password))) {
       // create token
-      const token = jwt.sign(
-        { user_id: user._id, email },
-        process.env.TOKEN_KEY,
-        {
-          expiresIn: "1h",
-        }
-      );
+      const token = createToken({ id: user._id, email });
 
       user.token = token;
       return res.status(200).json(user);
@@ -37,3 +31,5 @@ export default async function (req, res) {
     res.status(400).send(err.message);
   }
 }
+
+
