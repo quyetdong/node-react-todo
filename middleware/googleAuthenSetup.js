@@ -7,17 +7,18 @@ const GoogleStrategy = passportGoogle.Strategy;
 
 const { 
   GOOGLE_CLIENT_ID, 
-  GOOGLE_CLIENT_SECRET 
+  GOOGLE_CLIENT_SECRET,
+  GOOGLE_CALLBACK
 } = process.env;
 
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3001/google/callback",
+    callbackURL: GOOGLE_CALLBACK,
     passReqToCallback: true,
   },
   function(req, accessToken, refreshToken, profile, done) {
-    // console.log('*** google strategy function', profile);
+    console.log('*** google strategy function ', profile.id);
     User.findOne({ googleId: profile.id }, async function (err, user) {
       // console.log('***', user);
       if (user == null) {
@@ -34,11 +35,15 @@ passport.use(new GoogleStrategy({
   }
 ));
 
+// save user infor to session, save sessionId to browser's cookie
 passport.serializeUser(function(user, done) {
+  console.log('*** passport serialize ', user._id);
   done(null, user)
 });
 
+// get user infor from session (sessionId), attach user infor to req.user
 passport.deserializeUser(function(user, done) {
+  console.log('*** passport deserialize ', user._id);
   done(null, user)
 });
 
