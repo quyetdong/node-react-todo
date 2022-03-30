@@ -9,8 +9,8 @@ import login from './controller/login.js';
 import welcome from './controller/welcome.js';
 import authenGoogle from './controller/authenGoogle.js';
 import authenGoogleCallback from './controller/authenGoogleCallback.js';
-import protectedUrl from './controller/protectedUrl.js';
-import passport from './middleware/googleAuthenSetup.js';
+import authSuccess from './controller/authSuccess.js';
+import passport from './middleware/passportGoogle.js';
 
 const sessionOptions = {
   secret: process.env.SESSION_SECRET,
@@ -29,14 +29,14 @@ export default function endpoints(app) {
 
   // Login
   app.post("/login", login);
-  
+
   app.get("/logout", (req, res) => {
     req.logout();
     res.send('Goodbye!');
   });
 
   // Welcome
-  app.get("/welcome", auth, welcome);
+  app.get("/welcome", welcome);
 
   app.get('/', (req, res) => {
     res.send('<a href="/auth/google">Authenticate with Google</a>')
@@ -46,9 +46,10 @@ export default function endpoints(app) {
 
   app.get("/auth/google", authenGoogle(passport));
 
+  app.get("/auth/success", auth, authSuccess);
+
   app.get("/auth/failure", (req, res) => {
-    res.send('something went wrong ...');
+    res.send('Something went wrong.');
   });
 
-  app.get("/protected", auth, protectedUrl);
 }

@@ -1,9 +1,7 @@
 import passport from 'passport';
-import * as passportGoogle from 'passport-google-oauth2';
+import { Strategy as GoogleStrategy } from 'passport-google-oauth2';
 
 import User from '../model/user.js';
-
-const GoogleStrategy = passportGoogle.Strategy;
 
 const { 
   GOOGLE_CLIENT_ID, 
