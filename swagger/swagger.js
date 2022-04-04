@@ -1,9 +1,9 @@
+import "dotenv/config";
 import swAutogen from 'swagger-autogen';
 
 const outputFile = './swagger/swagger.json'
 const endpointsFiles = ['./endpoints.js']
-const { API_PORT } = process.env;
-const port = process.env.PORT || API_PORT;
+const port = process.env.PORT || process.env.API_PORT;
 
 const doc = {
   host: `localhost:${port}`,

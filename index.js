@@ -1,5 +1,8 @@
+import "dotenv/config";
 import { createServer } from "http";
 import app from "./app.js";
+import './endpoints.js';
+
 const server = createServer(app);
 
 const { API_PORT } = process.env;

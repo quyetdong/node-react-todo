@@ -11,7 +11,7 @@
     "http"
   ],
   "paths": {
-    "/register": {
+    "/user/register": {
       "post": {
         "description": "",
         "parameters": [
@@ -50,7 +50,7 @@
         }
       }
     },
-    "/login": {
+    "/user/login": {
       "post": {
         "description": "",
         "parameters": [
@@ -80,8 +80,8 @@
         }
       }
     },
-    "/welcome": {
-      "post": {
+    "/user/logout": {
+      "get": {
         "description": "",
         "parameters": [],
         "responses": {
@@ -89,6 +89,82 @@
             "description": "OK"
           }
         }
+      }
+    },
+    "/user/welcome": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/user/auth/google": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/user/auth/success": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/user/auth": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/user/auth/failure": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/google/": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/google/auth": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/google/callback": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
       }
     }
   }

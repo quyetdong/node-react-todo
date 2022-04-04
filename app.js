@@ -1,4 +1,3 @@
-import "dotenv/config";
 import express, { json } from "express";
 // swagger ui
 import swaggerUi from "swagger-ui-express";
@@ -14,8 +13,6 @@ const swaggerDocument = require("./swagger/swagger.json");
 
 import * as database from "./config/database.js";
 import passport from './middleware/passportGoogle.js';
-import userRouter from "./router/userRouter.js";
-import googleRouter from "./router/googleRouter.js";
 
 const corsOptions = {
   origin: true,
@@ -41,8 +38,5 @@ app.use(cors(corsOptions));
 app.use(session(sessionOptions));
 app.use(passport.initialize());
 app.use(passport.session());
-
-app.use('/user', userRouter);
-app.use('/google', googleRouter);
 
 export default app;
