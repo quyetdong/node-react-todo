@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-test": "node test.js",
     "start": "node index.js",
+    "start-debug": "node --inspect index.js",
     "dev": "nodemon index.js",
     "swagger-autogen": "node ./swagger/swagger.js"
   },
