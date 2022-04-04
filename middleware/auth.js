@@ -10,7 +10,6 @@ export default function verifyToken (req, res, next) {
     req.header("authorization") || user.token;
 
   if (!token && req.user) {
-    console.log('*** create token')
     token = createToken({ id: req.user._id, email: req.user.email });
     req.user.token = token;
   }
