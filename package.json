@@ -9,7 +9,7 @@
     "start": "node index.js",
     "start-debug": "node --inspect index.js",
     "dev": "nodemon index.js",
-    "swagger-autogen": "node ./swagger/swagger.js"
+    "swagger-autogen": "node ./src/swagger/swagger.js"
   },
   "repository": {
     "type": "git",

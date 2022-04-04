@@ -102,14 +102,7 @@
         }
       }
     },
-    "/api/user/auth/google": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {}
-      }
-    },
-    "/api/user/auth/success": {
+    "/api/user/detail": {
       "get": {
         "description": "",
         "parameters": [],
@@ -120,7 +113,14 @@
         }
       }
     },
-    "/api/user/auth": {
+    "/api/user/auth/google": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/api/user/auth/success": {
       "get": {
         "description": "",
         "parameters": [],

@@ -1,7 +1,7 @@
 import express from "express";
 
-import userRouter from "./router/userRouter.js";
-import googleRouter from "./router/googleRouter.js";
+import userRouter from "./userRouter.js";
+import googleRouter from "./googleRouter.js";
 
 const router = express.Router();
 

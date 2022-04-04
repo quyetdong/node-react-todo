@@ -9,10 +9,10 @@ import session from 'express-session';
 // get json file
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
-const swaggerDocument = require("./swagger/swagger.json");
+const swaggerDocument = require("./src/swagger/swagger.json");
 
-import * as database from "./config/database.js";
-import passport from './middleware/passportGoogle.js';
+import * as database from "./src/config/database.js";
+import passport from './src/middleware/passportGoogle.js';
 
 const corsOptions = {
   origin: true,
