@@ -8,7 +8,7 @@ import authenGoogleCallback from "../controller/authenGoogleCallback.js";
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.send('<a href="/google/auth">Authenticate with Google</a>')
+  res.send('<a href="/api/google/auth">Authenticate with Google</a>')
 });
 
 router.get("/auth", authenGoogle(passport));

@@ -11,7 +11,7 @@
     "http"
   ],
   "paths": {
-    "/user/register": {
+    "/api/user/register": {
       "post": {
         "description": "",
         "parameters": [
@@ -50,7 +50,7 @@
         }
       }
     },
-    "/user/login": {
+    "/api/user/login": {
       "post": {
         "description": "",
         "parameters": [
@@ -80,7 +80,7 @@
         }
       }
     },
-    "/user/logout": {
+    "/api/user/logout": {
       "get": {
         "description": "",
         "parameters": [],
@@ -91,7 +91,7 @@
         }
       }
     },
-    "/user/welcome": {
+    "/api/user/welcome": {
       "get": {
         "description": "",
         "parameters": [],
@@ -102,14 +102,14 @@
         }
       }
     },
-    "/user/auth/google": {
+    "/api/user/auth/google": {
       "get": {
         "description": "",
         "parameters": [],
         "responses": {}
       }
     },
-    "/user/auth/success": {
+    "/api/user/auth/success": {
       "get": {
         "description": "",
         "parameters": [],
@@ -120,7 +120,7 @@
         }
       }
     },
-    "/user/auth": {
+    "/api/user/auth": {
       "get": {
         "description": "",
         "parameters": [],
@@ -131,7 +131,7 @@
         }
       }
     },
-    "/user/auth/failure": {
+    "/api/user/auth/failure": {
       "get": {
         "description": "",
         "parameters": [],
@@ -142,7 +142,7 @@
         }
       }
     },
-    "/google/": {
+    "/api/google/": {
       "get": {
         "description": "",
         "parameters": [],
@@ -153,14 +153,14 @@
         }
       }
     },
-    "/google/auth": {
+    "/api/google/auth": {
       "get": {
         "description": "",
         "parameters": [],
         "responses": {}
       }
     },
-    "/google/callback": {
+    "/api/google/callback": {
       "get": {
         "description": "",
         "parameters": [],

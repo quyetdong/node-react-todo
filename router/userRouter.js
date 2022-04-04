@@ -28,11 +28,11 @@ router.get("/logout", (req, res) => {
 // Welcome
 router.get("/welcome", welcome);
 
+router.get("/detail", auth, authUser);
+
 router.get("/auth/google", authenGoogle(passport));
 
 router.get("/auth/success", auth, authSuccess);
-
-router.get("/auth", auth, authUser);
 
 router.get("/auth/failure", (req, res) => {
   res.send("Something went wrong.");
