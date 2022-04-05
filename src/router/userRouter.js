@@ -1,24 +1,18 @@
 import express from "express";
-import passport from 'passport';
 
-import register from "../controller/register.js";
-import login from "../controller/login.js";
-import welcome from "../controller/welcome.js";
-import authSuccess from "../controller/authSuccess.js";
-import authUser from "../controller/authUser.js";
+import * as UserController from "../controller/userController.js";
 // import authen
 import auth from "../middleware/auth.js";
 // import controllers
-import authenGoogle from "../controller/authenGoogle.js";
 
 const router = express.Router();
 
 // Logic goes here
 // Register
-router.post("/register", register);
+router.post("/register", UserController.register);
 
 // Login
-router.post("/login", login);
+router.post("/login", UserController.login);
 
 router.get("/logout", (req, res) => {
   req.logout();
@@ -26,16 +20,8 @@ router.get("/logout", (req, res) => {
 });
 
 // Welcome
-router.get("/welcome", welcome);
+router.get("/welcome", UserController.welcome);
 
-router.get("/detail", auth, authUser);
-
-router.get("/auth/google", authenGoogle(passport));
-
-router.get("/auth/success", auth, authSuccess);
-
-router.get("/auth/failure", (req, res) => {
-  res.send("Something went wrong.");
-});
+router.get("/detail", auth, UserController.getAuthenticatedUser);
 
 export default router;
