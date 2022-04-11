@@ -20,6 +20,6 @@ COPY . .
 
 # WORKDIR /usr/src/app
 
-EXPOSE 3001
+EXPOSE 3000
 
-CMD ["npm", "run", "start-bundled"]
+CMD ["npm", "run", "start"]

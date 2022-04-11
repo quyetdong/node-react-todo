@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> </head>
+  <body>
+    <h1>To do list:</h1>
+    <ul id="todo-list"></ul>
+
+    <script type="text/javascript">
+      let url = "http://localhost:3001/api/todo";
+
+      let htmlReq = new XMLHttpRequest();
+      fetch(url)
+        .then((res) => {
+          res.json().then((data) => {
+            let list = '';
+            console.log(data)
+            data.todos.forEach(element => {
+              list += `<li>${element.title}: ${element.description}</li>`
+            });
+
+            const uList = document.getElementById('todo-list');
+            uList.innerHTML = list;
+          });
+        })
+        .catch((err) => console.log(err));
+    </script>
+  </body>
+</html>

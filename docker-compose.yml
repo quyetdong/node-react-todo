@@ -1,0 +1,15 @@
+version: '3'
+services:
+  todo-service:
+    build: ./todo-service
+    ports: 
+      - 3001:3001
+    volumes:
+      - ./todo-service:/usr/src/app
+  web-service:
+    # image: nginx:stable
+    build: ./web-service
+    ports:
+      - 3000:3000
+    volumes:
+      - ./web-service:/usr/src/app
