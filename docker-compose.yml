@@ -2,6 +2,8 @@ version: '3'
 services:
   todo-service:
     build: ./todo-service
+    env_file:
+      - ./todo-service/.env
     ports: 
       - 3001:3001
     volumes:
@@ -9,6 +11,8 @@ services:
   web-service:
     # image: nginx:stable
     build: ./web-service
+    env_file:
+      - ./web-service/.env
     ports:
       - 3000:3000
     volumes:

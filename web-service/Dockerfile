@@ -3,23 +3,10 @@ FROM node:14
 
 WORKDIR /usr/src/app
 
-COPY package*.json ./
-COPY .env .env
+RUN npm install -g serve
 
-RUN npm install
-
-COPY . .
-
-# WORKDIR /usr/src/app/dist
-
-# COPY ./dist/ ./
-
-# WORKDIR /usr/src/app/src/swagger
-
-# COPY /src/swagger/swagger.json ./
-
-# WORKDIR /usr/src/app
+COPY ./build ./build
 
 EXPOSE 3000
 
-CMD ["npm", "run", "start"]
+CMD ["serve", "-s", "build"]
